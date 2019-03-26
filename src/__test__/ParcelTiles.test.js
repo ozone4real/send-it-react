@@ -30,11 +30,4 @@ describe('Parcel tiles test', () => {
   it('should test that the component rendered correctly', () => {
     expect(wrapper.length).toEqual(2);
   });
-
-  it('should test for its functionalities', () => {
-    wrapper
-      .find('button')
-      .at(0)
-      .simulate('click');
-  });
 });
