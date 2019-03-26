@@ -17,17 +17,11 @@ class AdminEditForm extends Form {
     this.setState({ isRequesting: true });
     const token = localStorage.getItem('token');
     const { data } = this.state;
-    const {
-      updateParcel,
-      parcel,
-      admin: { error },
-      displaySuccessMessage,
-      onModalClose,
-    } = this.props;
+    const { parcel, displaySuccessMessage, onModalClose } = this.props;
     const endpoint =
       parcel.presentlocation && data.status === 'in transit' ? 'presentLocation' : 'status';
     const url = `http://sendit03.herokuapp.com/api/v1/parcels/${parcel.parcelid}/${endpoint}`;
-    await updateParcel(token, url, data);
+    await this.props.adminEditParcel(token, url, data);
     displaySuccessMessage();
     setTimeout(() => onModalClose(), 1000);
   };
@@ -78,11 +72,9 @@ class AdminEditForm extends Form {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  updateParcel: (token, url, payload) => dispatch(adminEditParcel(token, url, payload)),
-});
+export { AdminEditForm };
 
 export default connect(
   null,
-  mapDispatchToProps,
+  { adminEditParcel },
 )(AdminEditForm);

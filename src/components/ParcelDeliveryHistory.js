@@ -141,7 +141,7 @@ class ParcelDeliveryHistory extends Component {
         </div>
       ),
     });
-    const { submitData } = this.props;
+    const { changeParcelDestination: submitData } = this.props;
     const token = localStorage.getItem('token');
     const { selectedParcel } = this.state;
     await submitData(token, selectedParcel.parcelid, destination);
@@ -204,17 +204,13 @@ class ParcelDeliveryHistory extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  submitData: (token, id, data) => dispatch(changeParcelDestination(token, id, data)),
-  fetchAllUserParcels: token => dispatch(fetchAllUserParcels(token)),
-  cancelParcelDelivery: (id, token) => dispatch(cancelParcelDelivery(id, token)),
-});
-
 const mapStateToProps = state => ({
   singleParcel: state.singleParcel,
 });
 
+export { ParcelDeliveryHistory };
+
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  { changeParcelDestination, fetchAllUserParcels, cancelParcelDelivery },
 )(ParcelDeliveryHistory);

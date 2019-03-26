@@ -153,15 +153,13 @@ class Admin extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  fetchAllParcels: token => dispatch(fetchAllParcels(token)),
-});
-
 const mapStateToProps = state => ({
   admin: state.admin,
 });
 
+export { Admin };
+
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  { fetchAllParcels },
 )(Admin);

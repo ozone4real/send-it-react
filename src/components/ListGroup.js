@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
 const ListGroup = ({ listItems, selectedItem, onItemSelect }) => {
   return (
     <ul className="list-group">
       {listItems.map(item => (
         <li
-          style={{ cursor: "pointer" }}
+          style={{ cursor: 'pointer' }}
           key={item.id}
           onClick={() => onItemSelect(item)}
-          className={item === selectedItem ? "selected-item" : ""}
+          className={item === selectedItem ? 'selected-item' : ''}
         >
           {item.label}
         </li>
@@ -16,5 +16,7 @@ const ListGroup = ({ listItems, selectedItem, onItemSelect }) => {
     </ul>
   );
 };
+
+export { ListGroup };
 
 export default ListGroup;

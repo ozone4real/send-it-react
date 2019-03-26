@@ -57,8 +57,8 @@ const ParcelTiles = ({ data, onChangeDestination, onCancelButtonClick }) => {
       )}
       {parcel.status === 'in transit' ? (
         <li>
-          <button>Track</button>{' '}
-          <button onClick={() => onChangeDestination(parcel)}>Change Destination</button>
+          <button>Track</button>
+          <button  className= 'click-me' onClick={() => onChangeDestination(parcel)}>Change Destination</button>
           <button onClick={() => onCancelButtonClick(parcel)}>Cancel</button>
         </li>
       ) : parcel.status === 'pending' ? (

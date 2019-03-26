@@ -177,18 +177,14 @@ class CreateOrderForm extends Form {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  createParcelOrderRequest: (token, data) => dispatch(createParcelOrderRequest(token, data)),
-  createParcelOrder: (token, data) => dispatch(createParcelOrder(token, data)),
-  fetchAllUserParcels: token => dispatch(fetchAllUserParcels(token)),
-});
-
 const mapStateToProps = state => ({
   singleParcel: state.singleParcel,
   user: state.user,
 });
 
+export { CreateOrderForm };
+
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  { createParcelOrderRequest, createParcelOrder, fetchAllUserParcels },
 )(CreateOrderForm);

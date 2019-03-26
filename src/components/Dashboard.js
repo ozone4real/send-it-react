@@ -38,4 +38,6 @@ const Dashboard = ({ user, userParcels }) => {
   );
 };
 
+export { Dashboard };
+
 export default Dashboard;

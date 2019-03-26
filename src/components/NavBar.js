@@ -87,4 +87,5 @@ class NavBar extends Component {
   }
 }
 
+export { NavBar };
 export default NavBar;

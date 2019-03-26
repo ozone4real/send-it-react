@@ -23,7 +23,7 @@ class ChangeDestinationForm extends Form {
     const token = localStorage.getItem('token');
     const { data } = this.state;
     const {
-      submitData,
+      changeParcelDestinationRequest: submitData,
       parcel: { parcelid },
     } = this.props;
     const destination = Object.values(data).join(', ');
@@ -53,11 +53,9 @@ class ChangeDestinationForm extends Form {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  submitData: (token, id, data) => dispatch(changeParcelDestinationRequest(token, id, data)),
-});
+export { ChangeDestinationForm };
 
 export default connect(
   null,
-  mapDispatchToProps,
+  { changeParcelDestinationRequest },
 )(ChangeDestinationForm);
