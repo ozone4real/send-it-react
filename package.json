@@ -4,8 +4,11 @@
   "description": "Implementation of the <a href = \"https://github.com/ozone4real/SEND-IT-APP\"> send it</a> courrier service app in React.",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode development",
+    "start-dev": "webpack-dev-server --mode development",
+    "start-prod": "webpack --mode production",
+    "heroku-postbuild": "npm run build && npm run start-prod",
+    "start": "node ./public/server.js",
+    "build": "babel server.js -d ./public",
     "test": "jest \"--coverage\""
   },
   "jest": {
